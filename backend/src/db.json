@@ -1,0 +1,55 @@
+{
+  "users": [
+    {
+      "name": "Kamal Baau123",
+      "email": "kamal@example.com",
+      "phoneNumber": "8446008278",
+      "description": "Hardworking guy",
+      "skills": [
+        "cooking",
+        "farming",
+        "walking",
+        "Music",
+        "jwhdkbhked"
+      ],
+      "newSkill": "",
+      "id": "3"
+    },
+    {
+      "name": "Debu  Mau",
+      "email": "debu@example.com",
+      "phoneNumber": "8446008278",
+      "description": "Hardworking woman",
+      "skills": [
+        "cooking",
+        "farming",
+        "Playing"
+      ],
+      "id": "4"
+    },
+    {
+      "name": "Abhijeet Maity",
+      "email": "abhi@email.com",
+      "phoneNumber": "8989898989",
+      "description": "Hardworking guy",
+      "skills": [
+        "cooking",
+        "farming",
+        "coding"
+      ],
+      "id": "6ebd"
+    },
+    {
+      "id": "0345",
+      "name": "Mani ",
+      "email": "mani@email.com",
+      "phoneNumber": "8668374302",
+      "description": "Enthusiastic guy",
+      "skills": [
+        "",
+        "Teaching"
+      ],
+      "newSkill": ""
+    }
+  ]
+}
