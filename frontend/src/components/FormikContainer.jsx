@@ -6,6 +6,7 @@ import FormikControl from "./FormikControl";
 import TextError from "./TextError";
 import { Button } from "@mui/material";
 import ReactTables from "./ReactTables";
+import "../App.css";
 
 const FormikContainer = () => {
   const [userList, setUserList] = useState([]);
