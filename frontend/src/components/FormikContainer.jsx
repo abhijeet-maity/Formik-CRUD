@@ -18,7 +18,7 @@ const FormikContainer = () => {
     email: "",
     phoneNumber: "",
     description: "",
-    skills: [""],
+    skills: [],
   };
 
   const URL = "http://localhost:3000/users";
@@ -60,8 +60,7 @@ const FormikContainer = () => {
     description: Yup.string()
       .max(250, "Description must not exceed 50 words")
       .required("Required"),
-    skills: Yup.array()
-    .min(1, "At least one skill required"),
+    skills: Yup.array().min(1, "At least one skill required"),
   });
 
   console.log(`${URL}/${updateUserId}`);
@@ -109,7 +108,7 @@ const FormikContainer = () => {
   };
 
   return (
-    <>
+    <div className="Form-parent-container">
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -120,81 +119,91 @@ const FormikContainer = () => {
           console.log(formik);
           return (
             <Form>
-              <FormikControl
-                control="input"
-                type="name"
-                label="name"
-                name="name"
-              />
-              <FormikControl
-                control="input"
-                type="email"
-                label="email"
-                name="email"
-              />
-              <FormikControl
-                control="textarea"
-                label="Description"
-                name="description"
-              />
-              <FormikControl
-                control="input"
-                type="text"
-                label="phoneNumber"
-                name="phoneNumber"
-              />
+              <div className="form-inputs">
+                <div>
+                  <FormikControl
+                    control="input"
+                    type="name"
+                    label="name"
+                    name="name"
+                  />
+                  <FormikControl
+                    control="input"
+                    type="email"
+                    label="email"
+                    name="email"
+                  />
+                </div>
+                <div>
+                  <FormikControl
+                    control="textarea"
+                    label="Description"
+                    name="description"
+                  />
+                  <FormikControl
+                    control="input"
+                    type="text"
+                    label="phoneNumber"
+                    name="phoneNumber"
+                  />
+                </div>
 
-              <div className="form-controls">
-                <label htmlFor="skills">List of Skills</label>
-                <FieldArray name="skills">
-                  {({ push, remove, form }) => {
-                    const { values, setFieldValue } = form;
-                    const { skills } = values;
-                    // console.log("educationField", educationField);
+                <div className="form-controls">
+                  <label htmlFor="skills">List of Skills</label>
+                  <FieldArray name="skills">
+                    {({ push, remove, form }) => {
+                      const { values, setFieldValue } = form;
+                      const { skills } = values;
+                      // console.log("educationField", educationField);
 
-                    return (
-                      <div>
-                        {/* Display skill as divs */}
-                        {skills.map((skill, index) => (
-                          <div key={index} className="skills">
-                            <span>{skill}</span>{" "}
-                            {/* Show hobby value inside a span */}
-                            {skill.length > 0 && (
-                              <button
-                                type="button"
-                                onClick={() => remove(index)}
-                              >
-                                Remove
-                              </button>
-                            )}
+                      return (
+                        <div className="skill-container">
+                          {/* Display skill as divs */}
+                          {skills.map((skill, index) => (
+                            <div key={index} className="skills">
+                              <span>{skill}</span>{" "}
+                              {/* Show hobby value inside a span */}
+                              {skill.length > 0 && (
+                                <button
+                                  type="button"
+                                  onClick={() => remove(index)}
+                                >
+                                  X
+                                </button>
+                              )}
+                            </div>
+                          ))}
+                          <div>
+                            {/* Input field to add new skill*/}
+                            <Field name="newSkill" placeholder="Enter skill" />
+                            <button
+                              className="add-skill"
+                              type="button"
+                              onClick={() => {
+                                // console.log("setFieldValue", setFieldValue, values);
+                                const newSkill = values?.newSkill?.trim();
+                                if (newSkill) {
+                                  push(newSkill);
+                                  setFieldValue("newSkill", "");
+                                }
+                              }}
+                            >
+                              Add Skill
+                            </button>
                           </div>
-                        ))}
-
-                        {/* Input field to add new hobby */}
-                        <Field name="newSkill" placeholder="Enter skill" />
-                        <button
-                          type="button"
-                          onClick={() => {
-                            // console.log("setFieldValue", setFieldValue, values);
-                            const newSkill = values?.newSkill?.trim();
-                            if (newSkill) {
-                              push(newSkill);
-                              setFieldValue("newSkill", "");
-                            }
-                          }}
-                        >
-                          Add Skill
-                        </button>
-                      </div>
-                    );
-                  }}
-                </FieldArray>
-                <ErrorMessage name="skills" component={TextError} />
+                        </div>
+                      );
+                    }}
+                  </FieldArray>
+                  <ErrorMessage name="skills" component={TextError} />
+                </div>
+                <div>
+                  <button className="submit" type="submit">
+                    Submit
+                  </button>
+                </div>
               </div>
-
-              <button type="submit">Submit</button>
-
-              <div>
+              <div className="react-tables">
                 <ReactTables
                   data={userList}
                   handleUpdate={handleUpdate}
@@ -206,7 +215,7 @@ const FormikContainer = () => {
           );
         }}
       </Formik>
-    </>
+    </div>
   );
 };
 

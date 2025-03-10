@@ -50,6 +50,19 @@
         "Teaching"
       ],
       "newSkill": ""
+    },
+    {
+      "id": "bfb7",
+      "name": "John Doe",
+      "email": "john@email.com",
+      "phoneNumber": "7788778877",
+      "description": "Famous example",
+      "skills": [
+        "",
+        "writing",
+        "Dancing"
+      ],
+      "newSkill": ""
     }
   ]
 }
