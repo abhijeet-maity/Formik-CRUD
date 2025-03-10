@@ -20,6 +20,111 @@ ul li {
   list-style-type: none;
 }
 
+form {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
+}
+
+.form-controls {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+}
+
+.skills {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f1f1f1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.skills span {
+  font-weight: 500;
+  color: #333;
+}
+
+.skills button {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.skills button:hover {
+  background: #cc0000;
+}
+
+button[type="submit"],
+button[type="button"] {
+  background: #007bff;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+  background: #0056b3;
+}
+
+button[type="button"]:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  form {
+    padding: 15px;
+  }
+
+  button[type="submit"],
+  button[type="button"] {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
 
 
 
